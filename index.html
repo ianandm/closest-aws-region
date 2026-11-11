@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NearRegion — Closest AWS Region</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="atmosphere" aria-hidden="true">
+    <div class="grid"></div>
+    <div class="glow glow-a"></div>
+    <div class="glow glow-b"></div>
+  </div>
+
+  <main class="shell">
+    <header class="hero">
+      <p class="mark">NearRegion</p>
+      <h1>Find the closest AWS region to any place.</h1>
+      <p class="lede">Search a city, paste coordinates, or use your location. Distances are great-circle to each region’s metro.</p>
+
+      <form class="finder" id="finder" autocomplete="off">
+        <label class="sr-only" for="query">Location</label>
+        <input
+          id="query"
+          name="query"
+          type="search"
+          placeholder="City, address, or lat, lng"
+          enterkeyhint="search"
+          required
+        />
+        <div class="actions">
+          <button type="submit" class="btn primary" id="searchBtn">Find region</button>
+          <button type="button" class="btn ghost" id="geoBtn" title="Use device location">
+            Use my location
+          </button>
+        </div>
+      </form>
+
+      <p class="status" id="status" role="status" aria-live="polite"></p>
+    </header>
+
+    <section class="result" id="result" hidden>
+      <div class="winner">
+        <p class="winner-label">Closest region</p>
+        <p class="winner-code" id="winnerCode"></p>
+        <p class="winner-name" id="winnerName"></p>
+        <p class="winner-meta" id="winnerMeta"></p>
+      </div>
+
+      <div class="map-panel" aria-hidden="true">
+        <svg id="miniMap" viewBox="0 0 800 400" role="img"></svg>
+      </div>
+
+      <div class="list-head">
+        <h2>All regions by distance</h2>
+        <p id="fromLabel"></p>
+      </div>
+      <ol class="region-list" id="regionList"></ol>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>Commercial AWS regions · haversine distance · geocoding via OpenStreetMap Nominatim</span>
+  </footer>
+
+  <script src="regions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
