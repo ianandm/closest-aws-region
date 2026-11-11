@@ -1,6 +1,6 @@
 # NearRegion
 
-Small web app that finds the **closest AWS region** to a given location.
+Small web app that finds the **closest Azure region** to a given location.
 
 ## Run
 
@@ -21,4 +21,4 @@ Then visit http://localhost:5173
 ## Notes
 
 - Distances are geographic, not network latency
-- Region coordinates are approximate metro centers for public commercial AWS regions
+- Region coordinates are approximate metro centers for public Azure regions

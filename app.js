@@ -74,7 +74,7 @@
   }
 
   function rankRegions(origin) {
-    return window.AWS_REGIONS
+    return window.AZURE_REGIONS
       .map((region) => ({
         ...region,
         km: haversineKm(origin, region),
